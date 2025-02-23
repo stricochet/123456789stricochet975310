@@ -1,0 +1,9 @@
+function searchMovies() {
+    let input = document.getElementById("searchBar").value.toLowerCase();
+    let movies = document.getElementsByClassName("movie");
+
+    for (let i = 0; i < movies.length; i++) {
+        let title = movies[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+        movies[i].style.display = title.includes(input) ? "block" : "none";
+    }
+}
