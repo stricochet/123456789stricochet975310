@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Mon Site</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stricochet - ChatGPub</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>Mon Site</h1>
-            </div>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Films</a></li>
-                <li><a href="#">Séries</a></li>
-                <li><a href="#">Mon Compte</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>Stricochet</h1>
+    <p>Bienvenue sur ChatGPub - Votre site de films</p>
+  </header>
 
-    <main>
-        <section class="featured">
-            <h2>Films populaires</h2>
-            <div class="carousel">
-                <img src="project-image1.jpg" alt="Film 1" class="movie-poster">
-                <img src="project-image2.jpg" alt="Film 2" class="movie-poster">
-                <img src="project-image3.jpg" alt="Film 3" class="movie-poster">
-                <!-- Ajoute d'autres affiches ici -->
-            </div>
-        </section>
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Rechercher des films...">
+    <button onclick="searchFilm()">Rechercher</button>
+  </div>
 
-        <section class="category">
-            <h2>Catégorie Films d'Action</h2>
-            <div class="movies-grid">
-                <div class="movie-card">
-                    <img src="project-image4.jpg" alt="Film d'action 1">
-                </div>
-                <div class="movie-card">
-                    <img src="project-image5.jpg" alt="Film d'action 2">
-                </div>
-                <!-- Ajoute d'autres films ici -->
-            </div>
-        </section>
-        
-        <!-- Tu peux ajouter d'autres sections ici pour différentes catégories -->
-    </main>
+  <div class="content">
+    <div class="buttons">
+      <button class="cta-button">Action</button>
+      <button class="cta-button">Comédie</button>
+      <button class="cta-button">Drame</button>
+      <button class="cta-button">Science-Fiction</button>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Mon Site. Tous droits réservés.</p>
-    </footer>
+    <div class="posters">
+      <div class="poster">
+        <img src="https://via.placeholder.com/200x300" alt="Film 1">
+      </div>
+      <div class="poster">
+        <img src="https://via.placeholder.com/200x300" alt="Film 2">
+      </div>
+      <div class="poster">
+        <img src="https://via.placeholder.com/200x300" alt="Film 3">
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
