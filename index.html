@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonic 3, le film</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            background: linear-gradient(to right, #222, #111);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .poster img {
+            width: 200px;
+            border-radius: 10px;
+        }
+        .content {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .rating {
+            background: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .rating span {
+            color: yellow;
+        }
+        .genre {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .description {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .play-button {
+            background: #780000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 14px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        .play-button:hover {
+            background: #5a0000;
+        }
+        .reaction {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .reaction button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .reaction button:focus {
+            outline: none;
+        }
+    </style>
+    <script>
+        let likes = 0;
+        let dislikes = 0;
+
+        function updateCounts() {
+            document.getElementById("like-count").innerText = likes;
+            document.getElementById("dislike-count").innerText = dislikes;
+        }
+
+        function like() {
+            likes++;
+            updateCounts();
+        }
+
+        function dislike() {
+            dislikes++;
+            updateCounts();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="poster">
+            <img src="https://fr.web.img4.acsta.net/r_1920_1080/img/39/4a/394a0222094c3df3c2fc35768bcfbb36.jpg" alt="Sonic 3">
+        </div>
+        <div class="content">
+            <div class="title">Sonic 3, le film</div>
+            <div class="rating">⭐ <span>7.8/10</span></div>
+            <div class="genre">Action • Science-fiction • Comédie • Famille • 2024 • 1h40</div>
+            <div class="description">
+                Sonic, Knuckles et Tails sont à nouveau réunis face à un puissant nouvel adversaire.
+                Shadow, un mystérieux vilain doté de pouvoirs comme ils n’en ont encore jamais vu.
+                Leurs habiletés étant toutes surclassées, l’équipe Sonic doit tenter une alliance improbable
+                dans l’espoir d’arrêter Shadow et de protéger la planète.
+            </div>
+            <div class="buttons">
+                <a href="#" class="play-button">▶ Lecture</a>
+            </div>
+            <div class="reaction">
+                <button onclick="like()">👍 <span id="like-count">0</span></button>
+                <button onclick="dislike()">👎 <span id="dislike-count">0</span></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
