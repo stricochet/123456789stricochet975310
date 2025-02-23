@@ -3,89 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stricochet - Films</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #300000;
-            color: white;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .search-container {
-            margin-bottom: 20px;
-        }
-        #searchBar {
-            padding: 10px;
-            width: 50%;
-            border-radius: 20px;
-            border: none;
-            font-size: 16px;
-        }
-        .movie-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .movie {
-            background: #780000;
-            padding: 15px;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .movie:hover {
-            transform: scale(1.05);
-        }
-        .movie img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .watch-button {
-            background: #a00000;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .watch-button:hover {
-            background: #c00000;
-        }
-    </style>
-    <script>
-        function searchMovies() {
-            let input = document.getElementById("searchBar").value.toLowerCase();
-            let movies = document.getElementsByClassName("movie");
-            
-            for (let i = 0; i < movies.length; i++) {
-                let title = movies[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
-                if (title.includes(input)) {
-                    movies[i].style.display = "block";
-                } else {
-                    movies[i].style.display = "none";
-                }
-            }
-        }
-    </script>
+    <title>Accueil - Mon Site</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bienvenue sur Stricochet</h1>
-    <div class="search-container">
-        <input type="text" id="searchBar" onkeyup="searchMovies()" placeholder="Rechercher un film...">
-    </div>
-    <h2>Voici les derniers ajouts</h2>
-    <div class="movie-container">
-        <div class="movie">
-            <img src="https://fr.web.img4.acsta.net/r_1920_1080/img/39/4a/394a0222094c3df3c2fc35768bcfbb36.jpg" alt="Sonic 3">
-            <h3>Sonic 3, le film</h3>
-            <a href="sonic3.html" class="watch-button">Regarder</a>
-        </div>
-        <!-- Ajoute d'autres films ici -->
-    </div>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Mon Site</h1>
+            </div>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Films</a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Mon Compte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="featured">
+            <h2>Films populaires</h2>
+            <div class="carousel">
+                <img src="project-image1.jpg" alt="Film 1" class="movie-poster">
+                <img src="project-image2.jpg" alt="Film 2" class="movie-poster">
+                <img src="project-image3.jpg" alt="Film 3" class="movie-poster">
+                <!-- Ajoute d'autres affiches ici -->
+            </div>
+        </section>
+
+        <section class="category">
+            <h2>Catégorie Films d'Action</h2>
+            <div class="movies-grid">
+                <div class="movie-card">
+                    <img src="project-image4.jpg" alt="Film d'action 1">
+                </div>
+                <div class="movie-card">
+                    <img src="project-image5.jpg" alt="Film d'action 2">
+                </div>
+                <!-- Ajoute d'autres films ici -->
+            </div>
+        </section>
+        
+        <!-- Tu peux ajouter d'autres sections ici pour différentes catégories -->
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mon Site. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
