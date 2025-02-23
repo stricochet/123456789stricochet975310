@@ -1,1 +1,50 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.controls:hover {
+    opacity: 1;
+}
+
+.play-pause, .mute, .cast {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.progress-bar {
+    width: 300px;
+    margin: 0 15px;
+}
 
