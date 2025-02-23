@@ -7,14 +7,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #ff7f50, #ffbc8a); /* Couleurs plus claires et chaleureuses */
-            color: #333; /* Texte plus foncé pour un meilleur contraste */
+            background: linear-gradient(to bottom, #780000, #100000);
+            color: white;
             margin: 0;
             padding: 20px;
             text-align: center;
-        }
-        h1, h2 {
-            color: #333; /* Texte clair pour le titre */
         }
         .search-container {
             margin-bottom: 20px;
@@ -23,12 +20,8 @@
             padding: 10px;
             width: 50%;
             border-radius: 20px;
-            border: 1px solid #ff7f50; /* Bordure qui se fond bien avec le fond */
+            border: none;
             font-size: 16px;
-            outline: none;
-        }
-        #searchBar:focus {
-            border-color: #ff4500; /* Changement de couleur de bordure lors de la sélection */
         }
         .movie-container {
             display: flex;
@@ -37,24 +30,22 @@
             gap: 20px;
         }
         .movie {
-            background: #fff; /* Fond blanc pour les cartes de films */
+            background: #780000;
             padding: 15px;
             border-radius: 10px;
             width: 200px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet de profondeur */
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
         }
         .movie:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Ombre plus marquée au survol */
         }
         .movie img {
             width: 100%;
             border-radius: 10px;
         }
         .watch-button {
-            background: #ff7f50;
+            background: #a00000;
             color: white;
             padding: 10px;
             border-radius: 5px;
@@ -63,7 +54,7 @@
             margin-top: 10px;
         }
         .watch-button:hover {
-            background: #ff4500;
+            background: #c00000;
         }
     </style>
     <script>
