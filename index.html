@@ -1,43 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stricochet - ChatGPub</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stricochet - Films</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ff7f50, #ffbc8a); /* Couleurs plus claires et chaleureuses */
+            color: #333; /* Texte plus foncé pour un meilleur contraste */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333; /* Texte clair pour le titre */
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        #searchBar {
+            padding: 10px;
+            width: 50%;
+            border-radius: 20px;
+            border: 1px solid #ff7f50; /* Bordure qui se fond bien avec le fond */
+            font-size: 16px;
+            outline: none;
+        }
+        #searchBar:focus {
+            border-color: #ff4500; /* Changement de couleur de bordure lors de la sélection */
+        }
+        .movie-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .movie {
+            background: #fff; /* Fond blanc pour les cartes de films */
+            padding: 15px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet de profondeur */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .movie:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Ombre plus marquée au survol */
+        }
+        .movie img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .watch-button {
+            background: #ff7f50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .watch-button:hover {
+            background: #ff4500;
+        }
+    </style>
+    <script>
+        function searchMovies() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let movies = document.getElementsByClassName("movie");
+            
+            for (let i = 0; i < movies.length; i++) {
+                let title = movies[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    movies[i].style.display = "block";
+                } else {
+                    movies[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-  <header>
-    <h1>Stricochet</h1>
-    <p class="subheading">Découvrez les films avec ChatGPub</p>
-  </header>
-
-  <div class="search-bar">
-    <input type="text" id="search-input" placeholder="Rechercher des films..." class="search-input">
-    <button onclick="searchFilm()" class="search-button">🔍 Rechercher</button>
-  </div>
-
-  <div class="content">
-    <div class="buttons">
-      <button class="cta-button">Action</button>
-      <button class="cta-button">Comédie</button>
-      <button class="cta-button">Drame</button>
-      <button class="cta-button">Science-Fiction</button>
+    <h1>Bienvenue sur Stricochet</h1>
+    <div class="search-container">
+        <input type="text" id="searchBar" onkeyup="searchMovies()" placeholder="Rechercher un film...">
     </div>
-
-    <div class="posters">
-      <div class="poster">
-        <img src="https://via.placeholder.com/200x300" alt="Film 1">
-      </div>
-      <div class="poster">
-        <img src="https://via.placeholder.com/200x300" alt="Film 2">
-      </div>
-      <div class="poster">
-        <img src="https://via.placeholder.com/200x300" alt="Film 3">
-      </div>
+    <h2>Voici les derniers ajouts</h2>
+    <div class="movie-container">
+        <div class="movie">
+            <img src="https://fr.web.img4.acsta.net/r_1920_1080/img/39/4a/394a0222094c3df3c2fc35768bcfbb36.jpg" alt="Sonic 3">
+            <h3>Sonic 3, le film</h3>
+            <a href="sonic3.html" class="watch-button">Regarder</a>
+        </div>
+        <!-- Ajoute d'autres films ici -->
     </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
