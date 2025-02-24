@@ -48,6 +48,12 @@ muteBtn.addEventListener("click", toggleMute);
 
 progressBar.addEventListener("input", () => {
     video.currentTime = (progressBar.value / 100) * video.duration;
+    var player = videojs('my-video', {
+    plugins: {
+        chromecast: {}
+    }
+});
+
 });
 
 setInterval(handleInactivity, 5000);
