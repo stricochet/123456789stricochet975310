@@ -1,59 +1,26 @@
-const video = document.getElementById("video");
-const playPauseBtn = document.getElementById("playPauseBtn");
-const progressBar = document.getElementById("progressBar");
-const muteBtn = document.getElementById("muteBtn");
-const controls = document.querySelector(".controls");
+function vote(type) {
+    let currentVote = localStorage.getItem('userVote');
 
-let isPlaying = false;
-let isMuted = false;
-let isInactivityTimer = false;
-
-function togglePlayPause() {
-    if (isPlaying) {
-        video.pause();
-        playPauseBtn.innerHTML = "▶️";
+    if (currentVote === type) {
+        // Retirer le vote si l'utilisateur veut annuler
+        localStorage.removeItem('userVote');
+        document.getElementById('like-button').classList.remove('active');
+        document.getElementById('dislike-button').classList.remove('active');
+    } else if (!currentVote) {
+        // Enregistrer un nouveau vote
+        localStorage.setItem('userVote', type);
+        document.getElementById('like-button').classList.toggle('active', type === 'like');
+        document.getElementById('dislike-button').classList.toggle('active', type === 'dislike');
     } else {
-        video.play();
-        playPauseBtn.innerHTML = "⏸️";
+        alert("Vous avez déjà voté ! Si vous voulez modifier votre choix, cliquez sur le bouton correspondant.");
     }
-    isPlaying = !isPlaying;
 }
 
-function toggleMute() {
-    isMuted = !isMuted;
-    video.muted = isMuted;
-    muteBtn.innerHTML = isMuted ? "🔇" : "🔊";
-}
-
-function updateProgressBar() {
-    progressBar.value = (video.currentTime / video.duration) * 100;
-}
-
-function handleInactivity() {
-    controls.style.opacity = 0;
-    clearTimeout(isInactivityTimer);
-    isInactivityTimer = setTimeout(() => {
-        if (!isPlaying) video.play();
-    }, 10000);
-}
-
-video.addEventListener("timeupdate", updateProgressBar);
-video.addEventListener("mousemove", () => {
-    controls.style.opacity = 1;
-    handleInactivity();
-});
-
-playPauseBtn.addEventListener("click", togglePlayPause);
-muteBtn.addEventListener("click", toggleMute);
-
-progressBar.addEventListener("input", () => {
-    video.currentTime = (progressBar.value / 100) * video.duration;
-    var player = videojs('my-video', {
-    plugins: {
-        chromecast: {}
+window.onload = function() {
+    let voteType = localStorage.getItem('userVote');
+    if (voteType === 'like') {
+        document.getElementById('like-button').classList.add('active');
+    } else if (voteType === 'dislike') {
+        document.getElementById('dislike-button').classList.add('active');
     }
-});
-
-});
-
-setInterval(handleInactivity, 5000);
+}
