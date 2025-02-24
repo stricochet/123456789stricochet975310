@@ -6,23 +6,35 @@
     <title>Lecteur Vidéo</title>
     <!-- Inclure le CSS de Video.js -->
     <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+    <!-- Inclure le CSS et le JavaScript du plugin Chromecast -->
+    <link href="https://cdn.jsdelivr.net/npm/videojs-chromecast@2.0.0/dist/videojs-chromecast.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-chromecast@2.0.0/dist/videojs-chromecast.js"></script>
     <style>
-        /* Personnalisation de la barre de progression (rouge) */
-        .video-js .vjs-progress-holder {
-            background-color: red !important;
+        /* Personnalisation des contrôles du lecteur */
+        .video-js .vjs-play-control,
+        .video-js .vjs-volume-control,
+        .video-js .vjs-fullscreen-control {
+            background-color: #ff0000;
+            border-radius: 5px;
+            padding: 5px;
         }
-        /* Personnalisation du conteneur vidéo pour le centrer */
-        .video-container {
-            max-width: 100%;
-            margin: 0 auto;
-            text-align: center;
+        .video-js .vjs-progress-holder {
+            background-color: #ff6347;
+            height: 5px;
+        }
+        .video-js .vjs-control-bar {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+        .video-js .vjs-big-play-button {
+            background-color: rgba(255, 0, 0, 0.8);
         }
     </style>
 </head>
 <body>
 
     <div class="video-container">
-        <!-- Lecteur vidéo Video.js -->
         <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="600" height="400" data-setup="{}">
             <source src="https://cinesaga.xyz/movies/La-Liste-De-Schindler.mp4" type="video/mp4" />
             <p class="vjs-no-js">
@@ -31,11 +43,13 @@
         </video>
     </div>
 
-    <!-- Inclure le script Video.js -->
-    <script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+    <script>
+        var player = videojs('my-video', {
+            plugins: {
+                chromecast: {}
+            }
+        });
+    </script>
 
 </body>
 </html>
-<!-- Inclure le CSS et le JavaScript du plugin Chromecast -->
-<link href="https://cdn.jsdelivr.net/npm/videojs-chromecast@2.0.0/dist/videojs-chromecast.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/videojs-chromecast@2.0.0/dist/videojs-chromecast.js"></script>
