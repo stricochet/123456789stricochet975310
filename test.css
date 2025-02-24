@@ -1,4 +1,4 @@
-/* Réinitialisation de la page */
+/* Réinitialisation globale */
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +23,7 @@ header {
 .logo {
     font-size: 24px;
     font-weight: bold;
+    text-transform: lowercase;
 }
 
 nav ul {
@@ -39,9 +40,12 @@ nav ul li {
     padding: 5px;
     border-radius: 5px;
     border: none;
+    background-color: #333;
+    color: white;
+    padding: 8px 15px;
 }
 
-.login {
+.login-btn {
     background-color: #e50914;
     color: white;
     padding: 8px 15px;
@@ -50,7 +54,7 @@ nav ul li {
     cursor: pointer;
 }
 
-/* BANNIÈRE */
+/* BANNIÈRE PRINCIPALE */
 .banner {
     background: url('squidgame.jpg') center/cover no-repeat;
     height: 500px;
@@ -59,8 +63,12 @@ nav ul li {
     padding: 40px;
 }
 
-.content h1 {
+.banner-content h1 {
     font-size: 48px;
+}
+
+.tags {
+    margin-top: 10px;
 }
 
 .tags span {
@@ -75,7 +83,7 @@ nav ul li {
     width: 50%;
 }
 
-.btn {
+.view-btn {
     background-color: #e50914;
     color: white;
     padding: 10px 15px;
@@ -99,4 +107,12 @@ nav ul li {
     width: 150px;
     height: 100px;
     background: gray;
+}
+
+.history-link {
+    display: block;
+    margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
 }
