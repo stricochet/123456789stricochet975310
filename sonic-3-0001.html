@@ -55,9 +55,51 @@
         .dislike-button.active {
             background: darkgray;
         }
-        .vote-counts {
-            margin-top: 10px;
-            font-size: 18px;
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 0 0 10px 10px;
+        }
+        .progress-bar {
+            flex-grow: 1;
+            margin: 0 10px;
+            height: 5px;
+            background: #444;
+            position: relative;
+            cursor: pointer;
+        }
+        .progress {
+            height: 100%;
+            width: 0;
+            background: red;
+        }
+        .control-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .cast-icon {
+            width: 24px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -68,72 +110,48 @@
         <div class="info">⏳ Durée : 1h40</div>
         <div class="info">🌟 Note : 7.8/10</div>
         <div class="info">🔹 Genres : Action, Science-fiction, Comédie</div>
-        <div style="padding:56.25% 0 0 0;position:relative;">
-            <iframe width="100%" height="100%" src="https://app.videas.fr/embed/media/e854883e-2bfc-4097-9a73-3606e17b59c6/" 
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen="true" style="position: absolute; top: 0; left: 0" referrerpolicy="unsafe-url"></iframe>
+        <div class="video-container">
+            <video id="video" src="https://cinesaga.xyz/movies/Sonic-3.mp4?cb_oe2kcokamzl=1740437217473"></video>
+            <div class="controls">
+                <button class="control-button" id="play-pause">▶️</button>
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <img src="https://streamingdupapa.wordpress.com/wp-content/uploads/2025/02/img_3619-2-1.png" class="cast-icon" id="cast-button">
+            </div>
         </div>
         <div class="buttons">
             <button id="like-button" class="like-button" onclick="vote('like')">👍 Like</button>
             <button id="dislike-button" class="dislike-button" onclick="vote('dislike')">👎 Dislike</button>
         </div>
-        <div class="vote-counts">
-            <p>Likes : <span id="like-count">0</span></p>
-            <p>Dislikes : <span id="dislike-count">0</span></p>
-        </div>
     </div>
-
     <script>
-        let likeCount = 0;
-        let dislikeCount = 0;
+        const video = document.getElementById('video');
+        const playPauseButton = document.getElementById('play-pause');
+        const progressBar = document.getElementById('progress-bar');
+        const progress = document.getElementById('progress');
 
-        function vote(type) {
-            let currentVote = localStorage.getItem('userVote');
-
-            if (currentVote === type) {
-                // Retirer le vote
-                localStorage.removeItem('userVote');
-                document.getElementById('like-button').classList.remove('active');
-                document.getElementById('dislike-button').classList.remove('active');
-                
-                if (type === 'like') {
-                    likeCount--;
-                    document.getElementById('like-count').textContent = likeCount;
-                } else {
-                    dislikeCount--;
-                    document.getElementById('dislike-count').textContent = dislikeCount;
-                }
-            } else if (!currentVote) {
-                // Enregistrer un nouveau vote
-                localStorage.setItem('userVote', type);
-                document.getElementById('like-button').classList.toggle('active', type === 'like');
-                document.getElementById('dislike-button').classList.toggle('active', type === 'dislike');
-                
-                if (type === 'like') {
-                    likeCount++;
-                    document.getElementById('like-count').textContent = likeCount;
-                } else {
-                    dislikeCount++;
-                    document.getElementById('dislike-count').textContent = dislikeCount;
-                }
+        playPauseButton.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseButton.textContent = '⏸';
             } else {
-                alert("Vous avez déjà voté ! Si vous voulez modifier votre choix, cliquez sur le bouton correspondant.");
+                video.pause();
+                playPauseButton.textContent = '▶️';
             }
-        }
+        });
 
-        window.onload = function() {
-            let voteType = localStorage.getItem('userVote');
-            if (voteType === 'like') {
-                document.getElementById('like-button').classList.add('active');
-            } else if (voteType === 'dislike') {
-                document.getElementById('dislike-button').classList.add('active');
-            }
+        video.addEventListener('timeupdate', () => {
+            const percent = (video.currentTime / video.duration) * 100;
+            progress.style.width = percent + '%';
+        });
 
-            // Initialiser les compteurs (pour l'exemple, on peut partir de 0, ou si tu as une base de données, tu récupères les vrais chiffres)
-            document.getElementById('like-count').textContent = likeCount;
-            document.getElementById('dislike-count').textContent = dislikeCount;
-        }
+        progressBar.addEventListener('click', (event) => {
+            const rect = progressBar.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const percentage = offsetX / rect.width;
+            video.currentTime = percentage * video.duration;
+        });
     </script>
 </body>
 </html>
-
