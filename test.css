@@ -48,7 +48,7 @@ nav ul li {
 }
 
 .search-container input {
-    width: 300px; /* Taille augmentée */
+    width: 400px; /* Allongée */
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -56,23 +56,26 @@ nav ul li {
     color: white;
 }
 
-/* AFFICHE SQUID GAME EN PLEIN ÉCRAN */
+/* AFFICHE SQUID GAME */
 .hero {
     background: url('https://oblikon.net/wp-content/uploads/squid_game_front.jpg') center/cover no-repeat;
-    height: 100vh; /* Remplit tout l'écran */
+    height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
+    padding-bottom: 25vh; /* Place les infos à mi-hauteur */
 }
 
-.content-box {
+.info-box {
     background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
     padding: 40px;
     border-radius: 10px;
+    width: 60%;
+    max-width: 600px;
 }
 
-.content-box h1 {
+.info-box h1 {
     font-size: 48px;
 }
 
@@ -101,11 +104,11 @@ nav ul li {
     cursor: pointer;
 }
 
-/* SECTION DÉCOUVRIR (APPARAÎT EN SCROLLANT) */
+/* SECTION DÉCOUVRIR (ALIGNÉE À GAUCHE) */
 .discover {
     padding: 60px;
-    text-align: center;
     background-color: #181818;
+    text-align: left; /* Alignement à gauche */
 }
 
 .discover h2 {
