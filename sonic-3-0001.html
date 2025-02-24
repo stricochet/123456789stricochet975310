@@ -65,17 +65,16 @@
             width: 100%;
             border-radius: 10px;
         }
-        .controls {
-            position: absolute;
-            bottom: 10px;
-            left: 0;
+        .controls-container {
             width: 100%;
+            max-width: 800px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px;
             background: rgba(0, 0, 0, 0.6);
-            border-radius: 0 0 10px 10px;
+            border-radius: 10px;
+            margin-top: 10px;
         }
         .progress-bar {
             flex-grow: 1;
@@ -97,7 +96,7 @@
             font-size: 20px;
             cursor: pointer;
         }
-        .cast-icon {
+        .cast-icon, .fullscreen-icon {
             width: 24px;
             cursor: pointer;
         }
@@ -112,13 +111,14 @@
         <div class="info">🔹 Genres : Action, Science-fiction, Comédie</div>
         <div class="video-container">
             <video id="video" src="https://cinesaga.xyz/movies/Sonic-3.mp4?cb_oe2kcokamzl=1740437217473"></video>
-            <div class="controls">
-                <button class="control-button" id="play-pause">▶️</button>
-                <div class="progress-bar" id="progress-bar">
-                    <div class="progress" id="progress"></div>
-                </div>
-                <img src="https://streamingdupapa.wordpress.com/wp-content/uploads/2025/02/img_3619-2-1.png" class="cast-icon" id="cast-button">
+        </div>
+        <div class="controls-container">
+            <button class="control-button" id="play-pause">▶️</button>
+            <div class="progress-bar" id="progress-bar">
+                <div class="progress" id="progress"></div>
             </div>
+            <img src="https://streamingdupapa.wordpress.com/wp-content/uploads/2025/02/img_3619-2-1.png" class="cast-icon" id="cast-button">
+            <button class="control-button" id="fullscreen-button">⛶</button>
         </div>
         <div class="buttons">
             <button id="like-button" class="like-button" onclick="vote('like')">👍 Like</button>
@@ -130,6 +130,7 @@
         const playPauseButton = document.getElementById('play-pause');
         const progressBar = document.getElementById('progress-bar');
         const progress = document.getElementById('progress');
+        const fullscreenButton = document.getElementById('fullscreen-button');
 
         playPauseButton.addEventListener('click', () => {
             if (video.paused) {
@@ -151,6 +152,14 @@
             const offsetX = event.clientX - rect.left;
             const percentage = offsetX / rect.width;
             video.currentTime = percentage * video.duration;
+        });
+
+        fullscreenButton.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                video.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
         });
     </script>
 </body>
