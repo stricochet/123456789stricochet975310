@@ -114,3 +114,16 @@ nav ul li {
 .discover h2 {
     font-size: 36px;
 }
+
+/* AFFICHE SQUID GAME AVEC DÉGRADÉ ROUGE → NOIR */
+.hero {
+    background: linear-gradient(to bottom, #780000 0%, #141414 100%), 
+                url('https://oblikon.net/wp-content/uploads/squid_game_front.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 25vh; /* Place les infos à mi-hauteur */
+}
+
