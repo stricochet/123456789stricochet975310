@@ -55,6 +55,10 @@
         .dislike-button.active {
             background: darkgray;
         }
+        .vote-counts {
+            margin-top: 10px;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -73,16 +77,47 @@
             <button id="like-button" class="like-button" onclick="vote('like')">👍 Like</button>
             <button id="dislike-button" class="dislike-button" onclick="vote('dislike')">👎 Dislike</button>
         </div>
+        <div class="vote-counts">
+            <p>Likes : <span id="like-count">0</span></p>
+            <p>Dislikes : <span id="dislike-count">0</span></p>
+        </div>
     </div>
 
     <script>
+        let likeCount = 0;
+        let dislikeCount = 0;
+
         function vote(type) {
-            if (!localStorage.getItem('userVote')) {
+            let currentVote = localStorage.getItem('userVote');
+
+            if (currentVote === type) {
+                // Retirer le vote
+                localStorage.removeItem('userVote');
+                document.getElementById('like-button').classList.remove('active');
+                document.getElementById('dislike-button').classList.remove('active');
+                
+                if (type === 'like') {
+                    likeCount--;
+                    document.getElementById('like-count').textContent = likeCount;
+                } else {
+                    dislikeCount--;
+                    document.getElementById('dislike-count').textContent = dislikeCount;
+                }
+            } else if (!currentVote) {
+                // Enregistrer un nouveau vote
                 localStorage.setItem('userVote', type);
                 document.getElementById('like-button').classList.toggle('active', type === 'like');
                 document.getElementById('dislike-button').classList.toggle('active', type === 'dislike');
+                
+                if (type === 'like') {
+                    likeCount++;
+                    document.getElementById('like-count').textContent = likeCount;
+                } else {
+                    dislikeCount++;
+                    document.getElementById('dislike-count').textContent = dislikeCount;
+                }
             } else {
-                alert("Vous avez déjà voté !");
+                alert("Vous avez déjà voté ! Si vous voulez modifier votre choix, cliquez sur le bouton correspondant.");
             }
         }
 
@@ -93,6 +128,10 @@
             } else if (voteType === 'dislike') {
                 document.getElementById('dislike-button').classList.add('active');
             }
+
+            // Initialiser les compteurs (pour l'exemple, on peut partir de 0, ou si tu as une base de données, tu récupères les vrais chiffres)
+            document.getElementById('like-count').textContent = likeCount;
+            document.getElementById('dislike-count').textContent = dislikeCount;
         }
     </script>
 </body>
