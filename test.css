@@ -1,0 +1,102 @@
+/* Réinitialisation de la page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #141414;
+    color: white;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+}
+
+.search-container input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.login {
+    background-color: #e50914;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* BANNIÈRE */
+.banner {
+    background: url('squidgame.jpg') center/cover no-repeat;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.content h1 {
+    font-size: 48px;
+}
+
+.tags span {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.description {
+    margin-top: 15px;
+    width: 50%;
+}
+
+.btn {
+    background-color: #e50914;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* SECTION REPRENDRE MA LECTURE */
+.continue-watching {
+    margin: 40px;
+}
+
+.cards {
+    display: flex;
+    gap: 15px;
+}
+
+.card {
+    width: 150px;
+    height: 100px;
+    background: gray;
+}
