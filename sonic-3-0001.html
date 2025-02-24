@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lecteur Vidéo</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Inclure le CSS de Video.js -->
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+    <style>
+        /* Personnalisation de la barre de progression (rouge) */
+        .video-js .vjs-progress-holder {
+            background-color: red !important;
+        }
+        /* Personnalisation du conteneur vidéo pour le centrer */
+        .video-container {
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
     <div class="video-container">
-        <video id="video" class="video-player" autoplay>
-            <source src="https://cinesaga.xyz/movies/La-Liste-De-Schindler.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la vidéo.
+        <!-- Lecteur vidéo Video.js -->
+        <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="600" height="400" data-setup="{}">
+            <source src="https://cinesaga.xyz/movies/La-Liste-De-Schindler.mp4" type="video/mp4" />
+            <p class="vjs-no-js">
+                Pour voir cette vidéo, veuillez activer JavaScript et utiliser un navigateur compatible avec HTML5.
+            </p>
         </video>
-        
-        <div class="controls">
-            <button id="playPauseBtn" class="play-pause">▶️</button>
-            <input type="range" id="progressBar" class="progress-bar" value="0" step="1">
-            <button id="muteBtn" class="mute">🔊</button>
-            <button id="castBtn" class="cast">🎥</button>
-        </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Inclure le script Video.js -->
+    <script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+
 </body>
 </html>
