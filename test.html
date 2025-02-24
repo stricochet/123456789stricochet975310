@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinePulse Clone</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CinePulse</title>
+    <link rel="stylesheet" href="test.css"> <!-- Lien correct vers le CSS -->
 </head>
 <body>
+
+    <!-- HEADER -->
     <header>
-        <div class="logo">CinePulse</div>
+        <div class="logo">cinepulse</div>
         <nav>
             <ul>
                 <li>Découvrir</li>
@@ -18,42 +20,43 @@
             </ul>
         </nav>
         <div class="search-container">
-            <input type="text" placeholder="Rechercher...">
+            <input type="text" placeholder="Rechercher">
         </div>
-        <button class="login">Connexion</button>
+        <button class="login-btn">Connexion</button>
     </header>
 
-    <main>
-        <div class="banner">
-            <div class="content">
-                <h1>Squid Game</h1>
-                <div class="tags">
-                    <span class="age">16+</span>
-                    <span class="rating">⭐ 7.9/10</span>
-                    <span>Action</span>
-                    <span>Aventure</span>
-                    <span>Mystère</span>
-                    <span>Drame</span>
-                    <span>2 saisons</span>
-                </div>
-                <p class="description">
-                    Tentés par un prix alléchant en cas de victoire, des centaines de joueurs désargentés 
-                    acceptent de s’affronter lors de jeux d’enfants aux enjeux mortels.
-                </p>
-                <button class="btn">Voir la fiche</button>
+    <!-- BANNIÈRE PRINCIPALE -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Squid Game</h1>
+            <div class="tags">
+                <span class="age">16+</span>
+                <span class="rating">⭐ 7.9/10</span>
+                <span>Action</span>
+                <span>Aventure</span>
+                <span>Mystère</span>
+                <span>Drame</span>
+                <span>2 saisons</span>
             </div>
+            <p class="description">
+                Tentés par un prix alléchant en cas de victoire, des centaines de joueurs désargentés 
+                acceptent de s’affronter lors de jeux d’enfants aux enjeux mortels.
+            </p>
+            <button class="view-btn">Voir la fiche</button>
         </div>
+    </section>
 
-        <section class="continue-watching">
-            <h2>Reprendre ma lecture</h2>
-            <div class="cards">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </section>
-    </main>
+    <!-- SECTION REPRENDRE MA LECTURE -->
+    <section class="continue-watching">
+        <h2>Reprendre ma lecture</h2>
+        <div class="cards">
+            <div class="card card1"></div>
+            <div class="card card2"></div>
+            <div class="card card3"></div>
+        </div>
+        <a href="#" class="history-link">Voir mon historique</a>
+    </section>
 
-    <script src="script.js"></script>
+    <script src="test.js"></script> <!-- Lien correct vers le JavaScript -->
 </body>
 </html>
