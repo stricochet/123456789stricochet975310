@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecteur Vidéo Stricochet</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Détails du Film</title>
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="test2.css"> <!-- Ajout du fichier CSS -->
 </head>
 <body>
-    <div class="video-container">
-        <video id="video-player" class="video" controls>
-            <source src="https://cinesaga.xyz/movies/Sonic-3.mp4?cb_oe2kcokamzl=1740437217473" type="video/mp4">
-            Ton navigateur ne supporte pas cette vidéo.
-        </video>
-        <div id="controls" class="controls">
-            <button id="play-pause" class="play-pause">Play</button>
-            <button id="skip-back" class="skip">⏪ 10s</button>
-            <button id="skip-forward" class="skip">⏩ 10s</button>
-            <div class="progress-container">
-                <input type="range" id="progress-bar" class="progress-bar" value="0" max="100" step="0.1">
-            </div>
+    <div class="container">
+        <div class="title">🎬 Sonic 3, le film</div>
+        <div class="info">📅 Date de sortie : 2024</div>
+        <div class="info">⏳ Durée : 1h40</div>
+        <div class="info">🌟 Note : 7.8/10</div>
+        <div class="info">🔹 Genres : Action, Science-fiction, Comédie</div>
+        
+        <!-- Nouveau lecteur vidéo avec Video.js -->
+        <div class="video-container">
+            <video id="my-video" class="video-js" controls preload="auto" width="800" height="450" data-setup="{}">
+                <source src="https://cinesaga.xyz/movies/Sonic-3.mp4?cb_oe2kcokamzl=1740437217473" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+        </div>
+
+        <div class="buttons">
+            <button id="like-button" class="like-button" onclick="vote('like')">👍 Like</button>
+            <button id="dislike-button" class="dislike-button" onclick="vote('dislike')">👎 Dislike</button>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
+    <script src="test2.js"></script> <!-- Ajout du fichier JS -->
 </body>
 </html>
