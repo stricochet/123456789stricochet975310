@@ -1,25 +1,117 @@
-/* Personnaliser les boutons */
-.video-js .vjs-play-control,
-.video-js .vjs-volume-control,
-.video-js .vjs-fullscreen-control {
-    background-color: #ff0000; /* Rouge pour les boutons */
-    border-radius: 5px; /* Bords arrondis */
+/* ======== Fond avec dégradé rouge -> noir ======== */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #780000, #000000); /* Dégradé */
+    color: white;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ======== Conteneur principal ======== */
+.container {
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+}
+
+/* ======== Titres et infos ======== */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.info {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* ======== Vidéo Player ======== */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+/* Style du lecteur Video.js */
+.video-js {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7);
+}
+
+/* Barre de contrôle avec transparence */
+.video-js .vjs-control-bar {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+/* Personnalisation des boutons */
+.video-js .vjs-button {
+    color: white !important;
+}
+
+/* Bouton Play/Pause */
+.video-js .vjs-play-control {
+    background-color: red;
+    border-radius: 5px;
     padding: 5px;
 }
 
-/* Personnalisation de la barre de progression */
+/* Barre de progression */
 .video-js .vjs-progress-holder {
-    background-color: #ff6347; /* Couleur rouge tomate */
+    background-color: #ff6347;
     height: 5px;
 }
 
-/* Personnalisation du fond du lecteur */
-.video-js .vjs-control-bar {
-    background-color: rgba(0, 0, 0, 0.7); /* Fond transparent sombre */
-    border-radius: 10px; /* Coins arrondis */
+/* Bouton plein écran */
+.video-js .vjs-fullscreen-control {
+    background-color: red;
+    border-radius: 5px;
 }
 
-/* Personnalisation de l'overlay (texte quand la vidéo est en pause) */
-.video-js .vjs-big-play-button {
-    background-color: rgba(255, 0, 0, 0.8); /* Rouge transparent pour le bouton play */
+/* ======== Bouton Cast ======== */
+.video-js .vjs-cast-button {
+    background-color: red;
+    border-radius: 5px;
+}
+
+/* ======== Boutons Like/Dislike ======== */
+.buttons {
+    margin-top: 20px;
+}
+
+.like-button, .dislike-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    margin: 5px;
+}
+
+.like-button {
+    background: grey;
+    color: white;
+}
+
+.dislike-button {
+    background: grey;
+    color: white;
+}
+
+.like-button.active {
+    background: red;
+}
+
+.dislike-button.active {
+    background: darkgray;
 }
