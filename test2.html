@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détails du Film</title>
-    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-    <link rel="stylesheet" href="test2.css"> <!-- Ajout du fichier CSS -->
+    <title>Détails du Film - Sonic 3</title>
+    <link rel="stylesheet" href="test2.css"> <!-- Lien vers le CSS -->
 </head>
 <body>
     <div class="container">
@@ -14,22 +13,33 @@
         <div class="info">⏳ Durée : 1h40</div>
         <div class="info">🌟 Note : 7.8/10</div>
         <div class="info">🔹 Genres : Action, Science-fiction, Comédie</div>
-        
-        <!-- Nouveau lecteur vidéo avec Video.js -->
+
+        <!-- Vidéo -->
         <div class="video-container">
-            <video id="my-video" class="video-js" controls preload="auto" width="800" height="450" data-setup='{"plugins": {"chromecast": {}}}'>
+            <video id="my-video" class="video-js" controls preload="auto" width="800" height="450" 
+                data-setup='{"plugins": {"chromecast": {}}}'>
                 <source src="https://cinesaga.xyz/movies/Sonic-3.mp4?cb_oe2kcokamzl=1740437217473" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="controls">
+                <button id="play-pause">▶️</button>
+                <button id="cast">📺</button>
+                <button id="fullscreen">⛶</button>
+            </div>
         </div>
 
+        <!-- Like / Dislike -->
         <div class="buttons">
-            <button id="like-button" class="like-button" onclick="vote('like')">👍 Like</button>
-            <button id="dislike-button" class="dislike-button" onclick="vote('dislike')">👎 Dislike</button>
+            <button id="like-button" class="like-button">👍 Like</button>
+            <button id="dislike-button" class="dislike-button">👎 Dislike</button>
         </div>
     </div>
 
-    <script src="https://unpkg.com/video.js/dist/video.js"></script>
-    <script src="test2.js"></script> <!-- Ajout du fichier JS -->
+    <!-- Scripts -->
+    <script src="test2.js"></script> <!-- Lien vers le script JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-chromecast/2.0.0/videojs-chromecast.min.js"></script> <!-- Pour le bouton Cast -->
 </body>
 </html>
