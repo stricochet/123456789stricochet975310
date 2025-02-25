@@ -1,51 +1,67 @@
-const video = document.getElementById('video-player');
-const playPauseButton = document.getElementById('play-pause');
-const progressBar = document.getElementById('progress-bar');
-const controls = document.getElementById('controls');
-const skipBack = document.getElementById('skip-back');
-const skipForward = document.getElementById('skip-forward');
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("my-video");
+    const playPauseButton = document.getElementById("play-pause");
+    const progressBar = document.getElementById("progress");
+    const fullscreenButton = document.getElementById("fullscreen");
+    const castButton = document.getElementById("cast");
+    const likeButton = document.getElementById("like-button");
+    const dislikeButton = document.getElementById("dislike-button");
 
-let controlsTimeout;
+    // Lecture/Pause
+    playPauseButton.addEventListener("click", () => {
+        if (video.paused) {
+            video.play();
+            playPauseButton.textContent = "⏸️";
+        } else {
+            video.pause();
+            playPauseButton.textContent = "▶️";
+        }
+    });
 
-video.addEventListener('play', () => {
-    playPauseButton.textContent = 'Pause';
-});
+    // Mise à jour de la barre de progression
+    video.addEventListener("timeupdate", () => {
+        const progressPercent = (video.currentTime / video.duration) * 100;
+        progressBar.style.width = progressPercent + "%";
+    });
 
-video.addEventListener('pause', () => {
-    playPauseButton.textContent = 'Play';
-});
+    // Plein écran
+    fullscreenButton.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+            video.requestFullscreen().catch(err => {
+                console.error("Erreur plein écran:", err);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    });
 
-video.addEventListener('timeupdate', () => {
-    const progress = (video.currentTime / video.duration) * 100;
-    progressBar.value = progress;
-});
+    // Bouton Cast (Google Cast API)
+    if (window.chrome && window.chrome.cast) {
+        castButton.style.display = "block"; // Afficher le bouton si Cast est dispo
 
-progressBar.addEventListener('input', (e) => {
-    const value = e.target.value;
-    video.currentTime = (value / 100) * video.duration;
-});
-
-playPauseButton.addEventListener('click', () => {
-    if (video.paused) {
-        video.play();
+        castButton.addEventListener("click", () => {
+            const castSession = chrome.cast.requestSession();
+            if (castSession) {
+                const mediaInfo = new chrome.cast.media.MediaInfo(video.src, "video/mp4");
+                const request = new chrome.cast.media.LoadRequest(mediaInfo);
+                castSession.loadMedia(request).catch(err => console.error("Erreur Cast:", err));
+            }
+        });
     } else {
-        video.pause();
+        castButton.style.display = "none"; // Cacher le bouton si Cast n'est pas dispo
     }
-});
 
-skipBack.addEventListener('click', () => {
-    video.currentTime -= 10;
-});
+    // Like / Dislike
+    function vote(type) {
+        if (type === "like") {
+            likeButton.classList.add("active");
+            dislikeButton.classList.remove("active");
+        } else {
+            dislikeButton.classList.add("active");
+            likeButton.classList.remove("active");
+        }
+    }
 
-skipForward.addEventListener('click', () => {
-    video.currentTime += 10;
-});
-
-// Show controls when video is played
-video.addEventListener('mousemove', () => {
-    controls.classList.add('show');
-    clearTimeout(controlsTimeout);
-    controlsTimeout = setTimeout(() => {
-        controls.classList.remove('show');
-    }, 10000); // Hide controls after 10 seconds of inactivity
+    likeButton.addEventListener("click", () => vote("like"));
+    dislikeButton.addEventListener("click", () => vote("dislike"));
 });
