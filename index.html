@@ -3,89 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stricochet - Films</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #780000, #100000);
-            color: white;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .search-container {
-            margin-bottom: 20px;
-        }
-        #searchBar {
-            padding: 10px;
-            width: 50%;
-            border-radius: 20px;
-            border: none;
-            font-size: 16px;
-        }
-        .movie-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .movie {
-            background: #780000;
-            padding: 15px;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .movie:hover {
-            transform: scale(1.05);
-        }
-        .movie img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .watch-button {
-            background: #a00000;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .watch-button:hover {
-            background: #c00000;
-        }
-    </style>
-    <script>
-        function searchMovies() {
-            let input = document.getElementById("searchBar").value.toLowerCase();
-            let movies = document.getElementsByClassName("movie");
-            
-            for (let i = 0; i < movies.length; i++) {
-                let title = movies[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
-                if (title.includes(input)) {
-                    movies[i].style.display = "block";
-                } else {
-                    movies[i].style.display = "none";
-                }
-            }
-        }
-    </script>
+    <title>Mon Site de Streaming</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bienvenue sur Stricochet</h1>
-    <div class="search-container">
-        <input type="text" id="searchBar" onkeyup="searchMovies()" placeholder="Rechercher un film...">
-    </div>
-    <h2>Voici les derniers ajouts</h2>
-    <div class="movie-container">
-        <div class="movie">
-            <img src="https://fr.web.img4.acsta.net/r_1920_1080/img/39/4a/394a0222094c3df3c2fc35768bcfbb36.jpg" alt="Sonic 3">
-            <h3>Sonic 3, le film</h3>
-            <a href="sonic3.html" class="watch-button">Regarder</a>
-        </div>
-        <!-- Ajoute d'autres films ici -->
-    </div>
+    <header>
+        <h1>Mon Site de Streaming</h1>
+        <nav>
+            <ul>
+                <li><a href="#top10">Top 10</a></li>
+                <li><a href="#films-du-moment">Films du moment</a></li>
+                <!-- Autres catégories -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="top10">
+            <h2>Top 10</h2>
+            <div class="film-grid">
+                <!-- Les films seront ajoutés ici dynamiquement -->
+            </div>
+        </section>
+        <section id="films-du-moment">
+            <h2>Films du moment</h2>
+            <div class="film-grid">
+                <!-- Les films seront ajoutés ici dynamiquement -->
+            </div>
+        </section>
+        <!-- Autres sections -->
+    </main>
+    <footer>
+        <p>&copy; 2025 Mon Site de Streaming. Tous droits réservés.</p>
+    </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
