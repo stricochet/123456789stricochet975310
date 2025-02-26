@@ -1,8 +1,26 @@
-// Fonction pour la recherche (simple exemple)
-function searchFilm() {
-  const query = document.getElementById('search-input').value;
-  if (query) {
-    alert(`Recherche pour : ${query}`);
-    // Ici tu peux intégrer une fonction de recherche sur une API de films ou quelque chose d'autre.
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const top10Films = [
+        // Liste des films pour le Top 10
+        // Exemple : { title: 'Film 1', image: 'path/to/image1.jpg' }
+    ];
+
+    const filmsDuMoment = [
+        // Liste des films pour les Films du moment
+    ];
+
+    function displayFilms(films, containerId) {
+        const container = document.querySelector(`#${containerId} .film-grid`);
+        container.innerHTML = '';
+        films.forEach(film => {
+            const filmDiv = document.createElement('div');
+            filmDiv.innerHTML = `
+                <img src="${film.image}" alt="${film.title}" style="width:100%">
+                <p>${film.title}</p>
+            `;
+            container.appendChild(filmDiv);
+        });
+    }
+
+    displayFilms(top10Films, 'top10');
+    displayFilms(filmsDuMoment, 'films-du-moment');
+});
