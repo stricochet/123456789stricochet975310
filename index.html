@@ -3,55 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stricochet - Accueil</title>
+    <title>Stricochet</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <div class="menu">
-        <h1 class="logo">Stricochet</h1>
-        <span class="separator"></span>
-        <nav>
-            <ul>
-                <li><a href="#">Animés</a></li>
-                <li><a href="#">Séries</a></li>
-                <li><a href="#">Films</a></li>
-                <li><a href="#">Sagas</a></li>
-                <li><a href="#">Propositions de films</a></li>
-            </ul>
-        </nav>
-        <input type="text" class="search-bar" placeholder="Rechercher des films, séries...">
-        <div class="connexion">
-            <button class="btn-connexion">
-                <div class="relative">
-                    <p>Connexion</p>
-                    <p>Bientôt disponible</p>
-                </div>
-            </button>
+
+    <!-- Barre de navigation -->
+    <header>
+        <div class="nav-container">
+            <h1 class="logo">Stricochet</h1>
+            <nav>
+                <ul>
+                    <li>Animé</li>
+                    <li>Série</li>
+                    <li>Film</li>
+                    <li>Saga</li>
+                    <li>Propositions de films</li>
+                    <li>Recherche</li>
+                </ul>
+            </nav>
+            <button class="connexion">Connexion</button>
         </div>
-    </div>
-</header>
+    </header>
 
-<main>
-    <section class="categories">
-        <h2>Animés</h2>
-        <div class="bloc" onclick="alert('Bloc Animés')">Bloc 1</div>
-        <div class="bloc" onclick="alert('Bloc Animés')">Bloc 2</div>
-    </section>
+    <!-- Section principale -->
+    <main>
+        <section class="categories">
+            <h2>Top 10</h2>
+            <div class="bloc">Bloc 1</div>
+            <div class="bloc">Bloc 2</div>
+            <div class="bloc">Bloc 3</div>
+            <!-- Ajout de blocs supplémentaires -->
+        </section>
+    </main>
 
-    <section class="categories">
-        <h2>Séries</h2>
-        <div class="bloc" onclick="alert('Bloc Séries')">Bloc 3</div>
-        <div class="bloc" onclick="alert('Bloc Séries')">Bloc 4</div>
-    </section>
-
-    <section class="categories">
-        <h2>Top 10 en ce moment</h2>
-        <div class="bloc" onclick="alert('Bloc Top 10')">Bloc 5</div>
-        <div class="bloc" onclick="alert('Bloc Top 10')">Bloc 6</div>
-    </section>
-</main>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
