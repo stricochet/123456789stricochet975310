@@ -1,102 +1,59 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #780000, black);
     color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.6);
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.separator {
-    color: white;
-    margin: 0 10px;
-}
-
-nav {
+.nav-container {
     display: flex;
     align-items: center;
-    gap: 20px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.search-bar {
-    background: black;
-    border: 1px solid white;
-    color: white;
-    padding: 5px 10px;
-    width: 400px;
-}
-
-.connexion {
-    text-align: center;
-}
-
-.connexion-btn {
-    cursor: pointer;
-    background: linear-gradient(to bottom, #780000, #600000);
-    border: 1px solid #ccc;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.connexion-btn p {
-    transition: transform 1.125s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.connexion-btn .hover-text {
-    position: absolute;
-    top: 40px;
-    left: 0;
     width: 100%;
 }
 
-.connexion-btn:hover .hover-text {
-    top: 0;
-    transform: translateY(-40px);
+.logo {
+    margin-right: 20px;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    color: white;
+    cursor: pointer;
+}
+
+.connexion {
+    background: linear-gradient(to bottom, #4B0082, #6A0DAD);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: auto;
 }
 
 .categories {
-    padding: 40px;
+    padding: 20px;
 }
 
 .bloc {
     background: rgba(255, 255, 255, 0.1);
-    margin: 20px;
-    padding: 50px;
-    display: inline-block;
-    text-align: center;
+    padding: 20px;
+    margin: 10px 0;
     cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.bloc:hover {
-    transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.2);
 }
