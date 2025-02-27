@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Stricochet est chargé !");
-});
+    const blocs = document.querySelectorAll(".bloc");
 
-function blocClicked(blocNumber) {
-    alert("Vous avez cliqué sur le Bloc " + blocNumber);
-}
+    blocs.forEach(bloc => {
+        bloc.addEventListener("click", () => {
+            alert("Tu as cliqué sur " + bloc.textContent);
+        });
+    });
+});
