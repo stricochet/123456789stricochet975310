@@ -1,3 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Le site Stricochet est chargé !");
+    console.log("Stricochet est chargé !");
 });
+
+function blocClicked(blocNumber) {
+    alert("Vous avez cliqué sur le Bloc " + blocNumber);
+}
