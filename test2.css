@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #141414;
+    background-color: #780000; /* Arrière-plan rouge */
     color: #fff;
 }
 
@@ -17,12 +17,14 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #000;
+    background-color: #000; /* En-tête noir */
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
 }
 
 .nav-links {
@@ -34,6 +36,7 @@ header {
 .nav-links a {
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .profile img {
@@ -49,6 +52,7 @@ header {
     display: flex;
     align-items: center;
     padding: 0 20px;
+    background-color: #780000; /* Rouge pour correspondre à l'arrière-plan */
 }
 
 .banner-content {
@@ -58,29 +62,39 @@ header {
 .banner h1 {
     font-size: 48px;
     margin-bottom: 10px;
+    color: #fff; /* Texte blanc pour contraster */
 }
 
 .banner p {
     font-size: 18px;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .banner button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #e50914;
+    background-color: #000; /* Bouton noir */
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 20px; /* Bouton plus arrondi */
+    transition: background-color 0.3s;
+}
+
+.banner button:hover {
+    background-color: #333; /* Gris foncé au survol */
 }
 
 /* Catégories */
 .categories {
     padding: 20px;
+    background-color: #780000; /* Rouge pour correspondre à l'arrière-plan */
 }
 
 .categories h2 {
     margin-bottom: 20px;
+    color: #fff; /* Texte blanc */
 }
 
 .category-list {
@@ -91,6 +105,9 @@ header {
 
 .category-item {
     text-align: center;
+    background-color: #000; /* Fond noir pour les éléments de catégorie */
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .category-item img {
@@ -102,13 +119,18 @@ header {
 
 .category-item p {
     margin-top: 10px;
+    color: #fff;
 }
 
 /* Pied de page */
 footer {
     padding: 20px;
-    background-color: #000;
+    background-color: #000; /* Pied de page noir */
     text-align: center;
+}
+
+footer p {
+    color: #fff;
 }
 
 footer ul {
@@ -122,12 +144,5 @@ footer ul {
 footer a {
     color: #fff;
     text-decoration: none;
-} 
-
-/* Logo */
-.logo {
-    font-size: 24px;
     font-weight: bold;
-    color: #fff;
-    text-transform: uppercase; /* Pour mettre le texte en majuscules */
 }
