@@ -1,129 +1,148 @@
-/* Réinitialisation globale */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+/* Page de lecture */
+body.film-page {
+    background: #000; /* Fond noir */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
 }
 
-body {
-    background-color: #141414;
-    color: white;
-}
-
-/* HEADER */
-header {
+/* En-tête */
+.film-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
-    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Noir semi-transparent */
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
 }
 
-.logo {
+.film-header .logo {
     font-size: 24px;
     font-weight: bold;
-    text-transform: lowercase;
+    color: #fff;
+    text-transform: uppercase;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin-left: 20px;
-}
-
-nav ul li {
-    cursor: pointer;
-}
-
-.search-container {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.search-container input {
-    width: 400px; /* Allongée */
-    padding: 10px;
-    border-radius: 5px;
+.film-header .back-button {
+    background: rgba(255, 255, 255, 0.1); /* Bouton semi-transparent */
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    background-color: #333;
-    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-/* AFFICHE SQUID GAME */
-.hero {
-    background: url('https://oblikon.net/wp-content/uploads/squid_game_front.jpg') center/cover no-repeat;
-    height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 25vh; /* Place les infos à mi-hauteur */
+.film-header .back-button:hover {
+    background: rgba(255, 255, 255, 0.2); /* Effet de survol */
 }
 
-.info-box {
-    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-    padding: 40px;
+/* Lecteur vidéo */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto 0; /* Espace pour l'en-tête */
+    padding: 20px;
+}
+
+video {
+    width: 100%;
     border-radius: 10px;
-    width: 60%;
-    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Ombre portée */
 }
 
-.info-box h1 {
-    font-size: 48px;
+/* Contrôles du lecteur */
+.video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.tags {
-    margin-top: 10px;
-}
-
-.tags span {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 5px 10px;
-    margin-right: 10px;
-    border-radius: 5px;
-}
-
-.description {
-    margin-top: 15px;
-}
-
-.view-btn {
-    background-color: #e50914;
-    color: white;
-    padding: 10px 15px;
-    margin-top: 10px;
+.video-controls button {
+    background: rgba(255, 255, 255, 0.1); /* Bouton semi-transparent */
+    color: #fff;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
-/* SECTION DÉCOUVRIR (ALIGNÉE À GAUCHE) */
-.discover {
-    padding: 60px;
-    background-color: #181818;
-    text-align: left; /* Alignement à gauche */
+.video-controls button:hover {
+    background: rgba(255, 255, 255, 0.2); /* Effet de survol */
 }
 
-.discover h2 {
+/* Informations du film */
+.film-info {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05); /* Fond semi-transparent */
+    border-radius: 10px;
+}
+
+.film-info h1 {
     font-size: 36px;
+    margin-bottom: 10px;
 }
 
-/* AFFICHE SQUID GAME AVEC DÉGRADÉ ROUGE → NOIR */
-.hero {
-    background: linear-gradient(to bottom, #780000 0%, #141414 100%), 
-                url('https://oblikon.net/wp-content/uploads/squid_game_front.jpg') center/cover no-repeat;
-    height: 100vh;
+.film-info p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.film-info .actors {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #aaa;
+}
+
+/* Recommandations */
+.recommendations {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.recommendations h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.recommendations-list {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 25vh; /* Place les infos à mi-hauteur */
+    gap: 20px;
+    overflow-x: auto;
 }
 
+.recommendations-list .film-card {
+    background: rgba(255, 255, 255, 0.05); /* Fond semi-transparent */
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.recommendations-list .film-card:hover {
+    transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+.recommendations-list .film-card img {
+    width: 150px;
+    height: 225px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.recommendations-list .film-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #fff;
+}
