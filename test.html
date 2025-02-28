@@ -3,54 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stricochet</title>
+    <title>Stricochet - Lecture</title>
+    <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" href="test.css">
 </head>
-<body>
-
-    <!-- HEADER -->
-    <header>
+<body class="film-page">
+    <!-- En-tête -->
+    <header class="film-header">
         <div class="logo">Stricochet</div>
-        <nav>
-            <ul>
-                <li>Découvrir</li>
-                <li>Films</li>
-                <li>Séries</li>
-                <li>Animés</li>
-            </ul>
-        </nav>
-        <div class="search-container">
-            <input type="text" placeholder="Rechercher">
-        </div>
+        <button class="back-button">Retour</button>
     </header>
 
-    <!-- AFFICHE SQUID GAME -->
-    <main class="hero">
-        <div class="info-box">
-            <h1>Squid Game</h1>
-            <div class="tags">
-                <span class="age">18+</span>
-                <span class="rating">⭐ 7.9/10</span>
-                <span>Action</span>
-                <span>Aventure</span>
-                <span>Mystère</span>
-                <span>Drame</span>
-                <span>2 saisons</span>
-            </div>
-            <p class="description">
-                Tentés par un prix alléchant en cas de victoire, des centaines de joueurs désargentés 
-                acceptent de s’affronter lors de jeux d’enfants aux enjeux mortels.
-            </p>
-            <button class="view-btn">Voir la fiche</button>
+    <!-- Lecteur vidéo -->
+    <div class="video-container">
+        <video controls>
+            <source src="https://cinesaga.xyz/movies/Sonic-3.mp4?cb_oe2kcokamzl=1740437217473" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+        <div class="video-controls">
+            <button>Lecture</button>
+            <button>Pause</button>
+            <button>Plein écran</button>
         </div>
-    </main>
+    </div>
 
-    <!-- SECTION DÉCOUVRIR -->
-    <section class="discover">
-        <h2>Découvrir</h2>
-        <p>Explore de nouveaux films, séries et animés.</p>
-    </section>
+    <!-- Informations du film -->
+    <div class="film-info">
+        <h1>Sonic 3</h1>
+        <p>Rejoignez Sonic dans une nouvelle aventure palpitante pour sauver le monde du Dr. Robotnik.</p>
+        <div class="actors">
+            <strong>Avec :</strong> Ben Schwartz, Jim Carrey, James Marsden
+        </div>
+    </div>
 
+    <!-- Recommandations -->
+    <div class="recommendations">
+        <h2>Recommandations</h2>
+        <div class="recommendations-list">
+            <div class="film-card">
+                <img src="https://via.placeholder.com/150x225" alt="Film 1">
+                <p>Film 1</p>
+            </div>
+            <div class="film-card">
+                <img src="https://via.placeholder.com/150x225" alt="Film 2">
+                <p>Film 2</p>
+            </div>
+            <div class="film-card">
+                <img src="https://via.placeholder.com/150x225" alt="Film 3">
+                <p>Film 3</p>
+            </div>
+            <div class="film-card">
+                <img src="https://via.placeholder.com/150x225" alt="Film 4">
+                <p>Film 4</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JavaScript -->
     <script src="test.js"></script>
 </body>
 </html>
