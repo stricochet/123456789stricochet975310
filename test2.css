@@ -180,3 +180,78 @@ footer a {
     text-decoration: none;
     font-weight: bold;
 }
+
+/* Styles pour les écrans de téléphone (max-width: 768px) */
+@media (max-width: 768px) {
+    /* En-tête */
+    header {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 20px; /* Taille du logo réduite */
+    }
+
+    nav ul {
+        gap: 10px; /* Espacement réduit entre les liens */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Taille de police réduite */
+    }
+
+    .connexion {
+        padding: 8px 16px; /* Taille du bouton réduite */
+        font-size: 14px;
+    }
+
+    /* Bannière */
+    .banner {
+        height: 300px; /* Hauteur réduite */
+    }
+
+    .banner h1 {
+        font-size: 32px; /* Taille du titre réduite */
+    }
+
+    .banner p {
+        font-size: 16px; /* Taille du texte réduite */
+    }
+
+    .banner button {
+        padding: 8px 16px; /* Taille du bouton réduite */
+        font-size: 14px;
+    }
+
+    /* Catégories */
+    .categories {
+        padding: 10px;
+    }
+
+    .bloc h2 {
+        font-size: 20px; /* Taille du titre réduite */
+    }
+
+    .category-item img {
+        width: 150px; /* Largeur réduite */
+        height: 225px; /* Hauteur réduite */
+    }
+
+    .category-item p {
+        font-size: 14px; /* Taille du texte réduite */
+    }
+
+    /* Pied de page */
+    footer {
+        padding: 10px;
+    }
+
+    footer p {
+        font-size: 14px; /* Taille du texte réduite */
+    }
+
+    footer ul {
+        flex-direction: column; /* Liens en colonne */
+        gap: 10px;
+    }
+}
