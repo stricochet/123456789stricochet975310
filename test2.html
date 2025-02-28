@@ -3,43 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détails du Film - Sonic 3</title>
-    <link rel="stylesheet" href="test2.css"> <!-- Lien vers le CSS -->
+    <title>Mon Streaming</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="title">🎬 Sonic 3, le film</div>
-        <div class="info">📅 Date de sortie : 2024</div>
-        <div class="info">⏳ Durée : 1h40</div>
-        <div class="info">🌟 Note : 7.8/10</div>
-        <div class="info">🔹 Genres : Action, Science-fiction, Comédie</div>
-
-        <!-- Vidéo -->
-        <div class="video-container">
-            <video id="my-video" class="video-js" controls preload="auto" width="800" height="450" 
-                data-setup='{"plugins": {"chromecast": {}}}'>
-                <source src="https://cinesaga.xyz/movies/Sonic-3.mp4?cb_oe2kcokamzl=1740437217473" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
+    <!-- En-tête -->
+    <header>
+        <nav>
+            <div class="logo">MonStreaming</div>
+            <ul class="nav-links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Films</a></li>
+                <li><a href="#">Nouveautés</a></li>
+                <li><a href="#">Ma Liste</a></li>
+            </ul>
+            <div class="profile">
+                <img src="https://via.placeholder.com/40" alt="Profil">
             </div>
-            <div class="controls">
-                <button id="play-pause">▶️</button>
-                <button id="cast">📺</button>
-                <button id="fullscreen">⛶</button>
+        </nav>
+    </header>
+
+    <!-- Bannière principale -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Bienvenue sur MonStreaming</h1>
+            <p>Regardez vos films et séries préférés en streaming.</p>
+            <button>Commencer</button>
+        </div>
+    </section>
+
+    <!-- Section des catégories -->
+    <section class="categories">
+        <h2>Populaires</h2>
+        <div class="category-list">
+            <div class="category-item">
+                <img src="https://via.placeholder.com/200x300" alt="Film 1">
+                <p>Film 1</p>
+            </div>
+            <div class="category-item">
+                <img src="https://via.placeholder.com/200x300" alt="Film 2">
+                <p>Film 2</p>
+            </div>
+            <div class="category-item">
+                <img src="https://via.placeholder.com/200x300" alt="Film 3">
+                <p>Film 3</p>
+            </div>
+            <div class="category-item">
+                <img src="https://via.placeholder.com/200x300" alt="Film 4">
+                <p>Film 4</p>
             </div>
         </div>
+    </section>
 
-        <!-- Like / Dislike -->
-        <div class="buttons">
-            <button id="like-button" class="like-button">👍 Like</button>
-            <button id="dislike-button" class="dislike-button">👎 Dislike</button>
-        </div>
-    </div>
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2023 MonStreaming. Tous droits réservés.</p>
+        <ul>
+            <li><a href="#">Conditions d'utilisation</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">Nous contacter</a></li>
+        </ul>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="test2.js"></script> <!-- Lien vers le script JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-chromecast/2.0.0/videojs-chromecast.min.js"></script> <!-- Pour le bouton Cast -->
+    <!-- Script JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
