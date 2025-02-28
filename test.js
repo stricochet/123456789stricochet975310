@@ -1,11 +1,25 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.querySelector(".search-container input");
+// Gestion des contrôles du lecteur vidéo
+const video = document.querySelector('video');
+const playButton = document.querySelector('.video-controls button:nth-child(1)');
+const pauseButton = document.querySelector('.video-controls button:nth-child(2)');
+const fullscreenButton = document.querySelector('.video-controls button:nth-child(3)');
 
-    searchInput.addEventListener("focus", () => {
-        searchInput.style.width = "350px"; // Augmente encore plus
-    });
+playButton.addEventListener('click', () => {
+    video.play();
+});
 
-    searchInput.addEventListener("blur", () => {
-        searchInput.style.width = "300px"; // Taille normale agrandie
-    });
+pauseButton.addEventListener('click', () => {
+    video.pause();
+});
+
+fullscreenButton.addEventListener('click', () => {
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) { /* Firefox */
+        video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) { /* Chrome, Safari et Opera */
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE/Edge */
+        video.msRequestFullscreen();
+    }
 });
