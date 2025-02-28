@@ -225,8 +225,8 @@ footer a {
     }
 
     .banner-title {
-        display: flex;
-        align-items: center;
+        flex-direction: column; /* Titre et bloc blanc en colonne */
+        align-items: flex-start; /* Alignement à gauche */
         gap: 10px; /* Espace entre le titre et le bloc blanc */
     }
 
@@ -235,6 +235,8 @@ footer a {
     }
 
     .banner-content .bloc-blanc {
+        width: 100%; /* Bloc blanc prend toute la largeur */
+        text-align: center; /* Texte centré */
         padding: 10px;
         font-size: 12px; /* Taille du texte réduite */
     }
