@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #780000, black); /* Dégradé du rouge au noir */
+    background: linear-gradient(to bottom, #780000, #400000, black); /* Dégradé plus progressif */
     color: white;
     font-family: Arial, sans-serif;
 }
@@ -48,14 +48,20 @@ nav ul li a {
     font-weight: bold;
 }
 
-.connexion {
-    background: linear-gradient(to bottom, #4B0082, #6A0DAD); /* Dégradé violet */
+/* Boutons */
+.connexion, .banner button {
+    background: rgba(0, 0, 0, 0.7); /* Noir semi-transparent */
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    margin-left: auto;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.connexion:hover, .banner button:hover {
+    background: rgba(0, 0, 0, 0.9); /* Noir plus opaque au survol */
+    transform: scale(1.05); /* Légère augmentation de taille */
 }
 
 /* Bannière */
@@ -67,38 +73,28 @@ nav ul li a {
     display: flex;
     align-items: center;
     padding: 0 20px;
-    background-color: rgba(120, 0, 0, 0.7); /* Rouge semi-transparent */
 }
 
 .banner-content {
     max-width: 600px;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .banner h1 {
     font-size: 48px;
     margin-bottom: 10px;
     color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour le texte */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police moderne */
+    font-weight: bold;
 }
 
 .banner p {
     font-size: 18px;
     margin-bottom: 20px;
     color: #fff;
-}
-
-.banner button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background: linear-gradient(to bottom, #4B0082, #6A0DAD); /* Dégradé violet */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.banner button:hover {
-    background: linear-gradient(to bottom, #6A0DAD, #4B0082); /* Dégradé violet inversé */
 }
 
 /* Catégories */
