@@ -86,6 +86,12 @@ nav ul li a {
     border-radius: 10px;
 }
 
+.banner-title {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espace entre le titre et le bloc blanc */
+}
+
 .banner h1 {
     font-size: 48px;
     margin-bottom: 10px;
@@ -96,12 +102,12 @@ nav ul li a {
 }
 
 .banner-content .bloc-blanc {
-    background: rgba(255, 255, 255, 0.9); /* Blanc semi-transparent */
+    background: rgba(255, 255, 255, 1); /* Blanc éclatant */
     padding: 15px;
     border-radius: 10px; /* Bords arrondis */
-    margin-left: 20px; /* Espace entre le titre et le bloc */
-    display: inline-block; /* Pour qu'il s'aligne à côté du titre */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    color: #000; /* Texte noir pour contraster */
+    font-weight: bold;
 }
 
 .banner p {
@@ -186,36 +192,55 @@ footer a {
     /* En-tête */
     header {
         padding: 10px;
+        flex-wrap: wrap; /* Permet le retour à la ligne */
     }
 
     .logo {
         font-size: 20px; /* Taille du logo réduite */
+        margin-right: 10px;
     }
 
     nav ul {
-        gap: 10px; /* Espacement réduit entre les liens */
+        gap: 8px; /* Espacement réduit entre les liens */
+        flex-wrap: wrap; /* Permet le retour à la ligne */
     }
 
     nav ul li a {
-        font-size: 14px; /* Taille de police réduite */
+        font-size: 12px; /* Taille de police réduite */
     }
 
     .connexion {
-        padding: 8px 16px; /* Taille du bouton réduite */
-        font-size: 14px;
+        padding: 6px 12px; /* Taille du bouton réduite */
+        font-size: 12px;
+        margin-left: auto; /* Pousse le bouton à droite */
     }
 
     /* Bannière */
     .banner {
-        height: 300px; /* Hauteur réduite */
+        height: 250px; /* Hauteur réduite */
+    }
+
+    .banner-content {
+        padding: 15px;
+    }
+
+    .banner-title {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Espace entre le titre et le bloc blanc */
     }
 
     .banner h1 {
-        font-size: 32px; /* Taille du titre réduite */
+        font-size: 24px; /* Taille du titre réduite */
+    }
+
+    .banner-content .bloc-blanc {
+        padding: 10px;
+        font-size: 12px; /* Taille du texte réduite */
     }
 
     .banner p {
-        font-size: 16px; /* Taille du texte réduite */
+        font-size: 14px; /* Taille du texte réduite */
     }
 
     .banner button {
@@ -229,16 +254,16 @@ footer a {
     }
 
     .bloc h2 {
-        font-size: 20px; /* Taille du titre réduite */
+        font-size: 18px; /* Taille du titre réduite */
     }
 
     .category-item img {
-        width: 150px; /* Largeur réduite */
-        height: 225px; /* Hauteur réduite */
+        width: 120px; /* Largeur réduite */
+        height: 180px; /* Hauteur réduite */
     }
 
     .category-item p {
-        font-size: 14px; /* Taille du texte réduite */
+        font-size: 12px; /* Taille du texte réduite */
     }
 
     /* Pied de page */
@@ -247,11 +272,15 @@ footer a {
     }
 
     footer p {
-        font-size: 14px; /* Taille du texte réduite */
+        font-size: 12px; /* Taille du texte réduite */
     }
 
     footer ul {
         flex-direction: column; /* Liens en colonne */
-        gap: 10px;
+        gap: 8px;
+    }
+
+    footer a {
+        font-size: 12px; /* Taille du texte réduite */
     }
 }
