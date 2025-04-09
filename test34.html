@@ -3,168 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamFlix</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #000;
-            color: #fff;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 2em;
-            color: #e50914;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #e50914;
-        }
-
-        .login-btn {
-            background: #e50914;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .login-btn:hover {
-            background: #b2070d;
-        }
-
-        /* Contenu principal */
-        .main-content {
-            margin-top: 100px;
-            padding: 20px 50px;
-        }
-
-        .movie-section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-
-        .movie-row {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-        }
-
-        .movie-card {
-            min-width: 250px;
-            height: 140px;
-            border-radius: 5px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            position: relative;
-        }
-
-        .movie-card:hover {
-            transform: scale(1.05);
-            cursor: pointer;
-        }
-
-        .movie-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Footer */
-        footer {
-            padding: 50px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.8);
-            margin-top: 50px;
-        }
-    </style>
+    <title>NexuStream | Plateforme de streaming</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">STREAMFLIX</div>
-        <nav class="nav-links">
-            <a href="#home">Accueil</a>
-            <a href="#movies">Films</a>
-            <a href="#series">Séries</a>
-            <a href="#new">Nouveautés</a>
+    <div class="background-effects">
+        <div class="light-effect pink"></div>
+        <div class="light-effect blue"></div>
+    </div>
+
+    <header class="glass-header">
+        <div class="logo">
+            <span class="logo-main">Nexu</span><span class="logo-accent">Stream</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="#">Films</a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Ma liste</a></li>
+            </ul>
         </nav>
-        <a href="#login" class="login-btn">Connexion</a>
+        <div class="user-actions">
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="login-btn">Connexion</button>
+        </div>
     </header>
 
-    <main class="main-content">
-        <section class="movie-section">
-            <h2 class="section-title">Tendances actuelles</h2>
-            <div class="movie-row">
-                <div class="movie-card">
-                    <img src="https://source.unsplash.com/random/250x140/?movie1" alt="Film 1">
-                </div>
-                <!-- Répéter pour d'autres films -->
-                <div class="movie-card">
-                    <img src="https://source.unsplash.com/random/250x140/?movie2" alt="Film 2">
-                </div>
-                <div class="movie-card">
-                    <img src="https://source.unsplash.com/random/250x140/?movie3" alt="Film 3">
-                </div>
-                <!-- Ajouter plus de cartes ici -->
-            </div>
+    <main class="glass-content">
+        <section class="hero">
+            <h1>Découvrez des contenus exclusifs</h1>
+            <p>Streaming ultra HD sur tous vos appareils</p>
+            <button class="cta-btn">Commencer l'essai gratuit</button>
         </section>
 
-        <!-- Plus de sections -->
+        <section class="content-row">
+            <h2 class="section-title">Tendances <span class="highlight">2024</span></h2>
+            <div class="carousel">
+                <!-- Contenu dynamique serait chargé ici en JS -->
+                <div class="content-card" style="--hover-color: #ff00aa">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <h3>Stranger Worlds</h3>
+                        <span class="rating">4.8 ★</span>
+                    </div>
+                </div>
+                <!-- Plus de cartes... -->
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 StreamFlix. Tous droits réservés.</p>
-    </footer>
-
-    <script>
-        // Ajouter des effets d'interactivité
-        document.querySelectorAll('.movie-card').forEach(card => {
-            card.addEventListener('mouseover', () => {
-                card.style.transform = 'scale(1.05)';
-            });
-            
-            card.addEventListener('mouseout', () => {
-                card.style.transform = 'scale(1)';
-            });
-        });
-    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
