@@ -3,193 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamVision | Expérience Cinéma</title>
+    <title>Stricochet - Arrière-plan personnalisé</title>
     <style>
         /* VARIABLES */
         :root {
-            --bg-overlay: rgba(5, 5, 10, 0.88);
-            --accent-1: #ff2a6d;
-            --accent-2: #05d9e8;
-            --glass-blur: blur(12px);
+            --bg-overlay: rgba(5, 5, 10, 0.85);
+            --text-color: #ffffff;
         }
 
         /* BASE */
         body {
             margin: 0;
-            overflow-x: hidden;
             font-family: 'Arial', sans-serif;
-            color: white;
-            height: 100vh;
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* BACKGROUND ANIMÉ AVEC VOTRE IMAGE */
-        .background-scroller {
+        /* ARRIÈRE-PLAN ANIMÉ (Votre image) */
+        .background-container {
             position: fixed;
             width: 100vw;
-            height: 400vh; /* 4x la hauteur écran pour effet fluide */
+            height: 300vh;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    #000000,
+                    #000000 20px,
+                    #ffffff 20px,
+                    #ffffff 40px
+                ),
+                url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABnSURBVDhP7cxBCsAgDETR6P3P3FYr1qKC0w8C+WFmYJiZmVn1xX3fX2ZJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiT9uwf5ABq1SZIbXwAAAABJRU5ErkJggg==') center/cover;
+            background-blend-mode: overlay;
             z-index: -2;
-            animation: scrollUp 80s linear infinite;
+            animation: scrollBackground 30s linear infinite;
         }
 
-        .background-layer {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('https://storage.googleapis.com/support-kms-prod/BBJ7xFAbz2DAt9eIxcRkl0wX4a7j1UmumFKF') center/cover;
-        }
-
-        /* Duplication pour boucle parfaite */
-        .background-layer::before,
-        .background-layer::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-        }
-
-        .background-layer::before {
-            top: -100%;
-        }
-
-        .background-layer::after {
-            top: 100%;
-        }
-
-        @keyframes scrollUp {
+        @keyframes scrollBackground {
             0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
+            100% { transform: translateY(-66.6%); }
         }
 
-        /* OVERLAY DYNAMIQUE */
+        /* OVERLAY NOIR TRANSPARENT */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: 
-                linear-gradient(to bottom, var(--bg-overlay) 0%, 
-                transparent 20%,
-                transparent 80%,
-                var(--bg-overlay) 100%),
-                radial-gradient(circle at 20% 30%, rgba(255,42,109,0.1) 0%, transparent 40%);
+            background: var(--bg-overlay);
             z-index: -1;
-        }
-
-        /* EFFETS LUMINEUX INTERACTIFS */
-        .light-pulse {
-            position: fixed;
-            width: 150vw;
-            height: 150vh;
-            background: radial-gradient(
-                circle at center, 
-                rgba(5, 217, 232, 0.03) 0%, 
-                transparent 70%
-            );
-            z-index: -1;
-            animation: pulse 15s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.2); opacity: 0.5; }
-            100% { transform: scale(0.8); opacity: 0.2; }
-        }
-
-        /* HEADER STYLE CINÉMA */
-        header {
-            background: rgba(10, 10, 15, 0.6);
-            backdrop-filter: var(--glass-blur);
-            padding: 1.2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         /* CONTENU PRINCIPAL */
-        main {
-            padding: 20vh 8% 5rem;
+        .content {
+            position: relative;
+            padding: 20vh 5% 10rem;
             text-align: center;
         }
 
         h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            background: linear-gradient(to right, #fff, var(--accent-2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            font-size: 3rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
-        .cta-btn {
-            background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
-            color: white;
-            border: none;
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 5px 25px rgba(255,42,109,0.4);
-            margin-top: 2rem;
+        /* CUBES DE FILMS */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            padding: 3rem 0;
         }
 
-        .cta-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 35px rgba(5,217,232,0.6);
+        .movie-cube {
+            aspect-ratio: 2/3;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .movie-cube:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
 <body>
-    <!-- BACKGROUND AVEC VOTRE IMAGE -->
-    <div class="background-scroller">
-        <div class="background-layer"></div>
-    </div>
-
-    <!-- EFFETS VISUELS -->
+    <!-- ARRIÈRE-PLAN PERSONNALISÉ -->
+    <div class="background-container"></div>
     <div class="overlay"></div>
-    <div class="light-pulse"></div>
-
-    <!-- HEADER -->
-    <header>
-        <div class="logo">STREAMVISION</div>
-        <button class="cta-btn">Commencer</button>
-    </header>
 
     <!-- CONTENU -->
-    <main>
-        <h1>L'Écran Devient Infini</h1>
-        <button class="cta-btn">Déverrouiller l'Expérience</button>
-    </main>
+    <div class="content">
+        <h1>STRICOCHET</h1>
+        
+        <div class="movie-grid">
+            <!-- 12 cubes de films -->
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+            <div class="movie-cube"></div>
+        </div>
+    </div>
 
     <script>
-        // Adaptation automatique à la taille de l'image
-        document.addEventListener('DOMContentLoaded', function() {
-            const bgLayer = document.querySelector('.background-layer');
-            const img = new Image();
-            img.src = 'https://storage.googleapis.com/support-kms-prod/BBJ7xFAbz2DAt9eIxcRkl0wX4a7j1UmumFKF';
-            
-            img.onload = function() {
-                const aspectRatio = img.naturalHeight / img.naturalWidth;
-                if (aspectRatio > 1.5) {
-                    document.querySelector('.background-scroller').style.height = '500vh';
-                }
-            };
+        // Animation aléatoire des cubes au chargement
+        document.querySelectorAll('.movie-cube').forEach(cube => {
+            cube.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
         });
     </script>
 </body>
